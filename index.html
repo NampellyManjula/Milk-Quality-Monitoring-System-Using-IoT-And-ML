@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Milk Quality Prediction</title>
+    <style>
+        body {
+            background-color: rgb(192, 233, 229);
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .container {
+            max-width: 80vw;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 40px 10px;
+            box-shadow: 40px 60px gray;
+            overflow: hidden;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            width: 90%;
+        }
+
+        .form-group select {
+            width: 90%;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid #cccccc;
+        }
+
+        .form-group input[type="text"] {
+            width: 90%;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid #cccccc;
+        }
+
+        .form-group input[type="submit"] {
+            width: 90%;
+            padding: 10px;
+            border-radius: 3px;
+            border: none;
+            background-color: #4CAF50;
+            color: #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .class1 {
+            position: relative;
+            top: -97vh;
+            right: -54%;
+        }
+
+        .class2 {
+            position: relative;
+            left: 5%;
+        }
+
+        .container {
+            height: 120vh;
+            align-items: center;
+        }
+
+        .submit {
+            position: relative;
+            left: 0vw;
+        }
+
+        .prediction {
+            color: black;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 30px 10px;
+            box-shadow: 40px 60px gray;
+            position: relative;
+            top: 10vh;
+            width: 50%;
+            height: 25vh;
+            right: -22vw;
+            margin-bottom: 200px;
+        }
+
+        .heading {
+            background: white;
+            border-radius: 20px;
+            padding: 10px;
+            width: 40vw;
+            position: relative;
+            right: -29vw;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="heading">Milk Quality Prediction</h1>
+    <div class="container"><br><br>
+        <form action="/predict" method="post">
+            <div class="class2">
+                <div class="form-group">
+                    <label for="pH">Enter pH value (3 - 9):</label>
+                    <input type="text" name="pH" id="pH">
+                </div>
+                <div class="form-group">
+                    <label for="temp">Temperature:</label>
+                    <input type="text" name="temp" id="temp">
+                </div>
+                <div class="form-group">
+                    <label for="taste">Taste:</label>
+                    <select name="taste" id="taste">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="odor">Odor:</label>
+                    <select name="odor" id="odor">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fat">Fat:</label>
+                    <select name="fat" id="fat">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="turbidity">Turbidity:</label>
+                    <select name="turbidity" id="turbidity">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="color">Color (245 - 255):</label>
+                    <input type="text" name="color" id="color">
+                </div>
+                <br><br>
+                
+                    <div class="form-group submit">
+                        <input type="submit" value="Predict Milk Quality">
+                    </div>
+                
+            </div>
+        </form>
+    </div>
+    <div class="prediction">
+        <h2>Prediction:</h2>
+        <p style="color: red;">**Note: 0 (low quality), 1 (medium quality) and 2 (high quality)</p>
+    </div>
+</body>
+
+</html>
